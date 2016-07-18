@@ -2,7 +2,7 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 class TemplateClient {
-  void test(){
+  static void test(){
     print("TemplateClient Ehhlo, lorg!");
   }
 }
