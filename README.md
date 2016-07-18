@@ -1,2 +1,19 @@
-# wrakaton_template_client
-Template API client, specially for Wrike hackaton
+# TemplateClient
+
+A library for Dart developers. It is awesome.
+
+## Usage
+
+A simple usage example:
+
+    import 'package:TemplateClient/TemplateClient.dart';
+
+    main() {
+      var awesome = new Awesome();
+    }
+
+## Features and bugs
+
+Please file feature requests and bugs at the [issue tracker][tracker].
+
+[tracker]: http://example.com/issues/replaceme
