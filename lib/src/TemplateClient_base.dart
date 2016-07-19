@@ -6,6 +6,7 @@ library TemplateClient.impl;
 import 'dart:async';
 import 'package:SemplexClientCmn/Utils/RestAdapter.dart';
 import 'package:SemplexClientCmn/Utils/HttpCommunicator/HttpBrowserCommunicator.dart';
+import 'dart:convert';
 
 class TemplateClient {
   HttpCommunicator _netEngine = new HttpCommunicator();
@@ -59,5 +60,21 @@ class TemplateClient {
 
   Future<Map> GetTemplate(int id, [bool isFull = true])
     => _rest.Get('${ServerUrl}/templates/{$id}${isFull ? "?full" : ""}');
+
+  Future CreateTemplate(String header,
+                        String description,
+                        String type,
+                        List<String> assignee,
+                        List workflow)
+  {
+    Map template = {
+      'title' : header,
+      'description' : description,
+      'type' : type,
+      'assignee' : JSON.encode(assignee),
+      'workflow' : JSON.encode(workflow)
+    };
+    return _rest.Create("${ServerUrl}/templates", template);
+  }
 
 }
