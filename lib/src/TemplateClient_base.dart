@@ -63,7 +63,7 @@ class TemplateClient {
 
   Future CreateTemplate(String header,
                         String description,
-                        String type,
+                        String type, /*TASK | PROJECT*/
                         List<String> assignee,
                         List workflow)
   {
