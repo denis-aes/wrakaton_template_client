@@ -37,6 +37,10 @@ class TemplateClient {
   Future<List> QueryByTaskData(String key, String value)
     => _rest.Get('${ServerUrl}/storage/tasks?${key}=${value}');
 
-  
+  Future<List> GetTemplates()
+    => _rest.Get('${ServerUrl}/templates');
+
+  Future<Map> GetTemplate(int id, [bool isFull = true])
+    => _rest.Get('${ServerUrl}/templates/{$id}${isFull ? "?full" : ""}');
 
 }
