@@ -27,6 +27,8 @@ class TemplateClient {
     });
   }
 
+  Future<List> GetForms() => _rest.Get('${ServerUrl}/storage/forms');
+
   Future<Map> GetFormInfo(int wrikeFormId)
     => _rest.Get('${ServerUrl}/storage/forms/${wrikeFormId}');
 
