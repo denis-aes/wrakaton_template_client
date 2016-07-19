@@ -6,14 +6,15 @@ import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    //Awesome awesome;
+    TemplateClient client = new TemplateClient('http://46.252.162.118:8001');
 
     setUp(() {
       //awesome = new Awesome();
     });
 
-    test('First Test', () {
-      //expect(awesome.isAwesome, isTrue);
+    test('First Test', () async {
+      var resp = await client.GetTaskWorkflow(1);
+      print(resp);
     });
   });
 }

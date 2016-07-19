@@ -6,10 +6,11 @@ library TemplateClient.impl;
 import 'dart:async';
 import 'package:SemplexClientCmn/Utils/RestAdapter.dart';
 import 'package:SemplexClientCmn/Utils/HttpCommunicator/HttpBrowserCommunicator.dart';
+import 'package:SemplexClientCmn/Utils/Interfaces/ICommunicator.dart';
 import 'dart:convert';
 
 class TemplateClient {
-  HttpCommunicator _netEngine = new HttpCommunicator();
+  ICommunicator _netEngine = new HttpCommunicator();
   RestAdapter _rest;
 
   final String _baseUrl;
@@ -74,7 +75,7 @@ class TemplateClient {
       => _rest.Get('${ServerUrl}/templates/projects?full');
 
   Future<Map> GetTemplate(int id, [bool isFull = true])
-    => _rest.Get('${ServerUrl}/templates/{$id}${isFull ? "?full" : ""}');
+    => _rest.Get('${ServerUrl}/templates/${id}${isFull ? "?full" : ""}');
 
   Future<Map> GetTemplateByRef(String refName, [bool isFull = true])
     => _rest.Get('${ServerUrl}/templates/ref/{$refName}${isFull ? "?full" : ""}');
