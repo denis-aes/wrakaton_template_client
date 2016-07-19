@@ -37,6 +37,9 @@ class TemplateClient {
   Future<List> QueryByTaskData(String key, String value)
     => _rest.Get('${ServerUrl}/storage/tasks?${key}=${value}');
 
+  Future<List> QueryByWrikeRootId(int wrootid)
+      => _rest.Get('${ServerUrl}/storage/tasks?wroot_id=${wrootid}');
+
   Future<List> GetTemplates()
     => _rest.Get('${ServerUrl}/templates');
 
