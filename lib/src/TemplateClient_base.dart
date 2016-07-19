@@ -20,16 +20,29 @@ class TemplateClient {
   String get ServerUrl => _baseUrl ?? '';
 
   Future SaveFormInfo(int wrikeFormId, Map data) async {
-    return _rest.Create('${ServerUrl}/storage/forms', data);
+    return _rest.Create('${ServerUrl}/storage/forms', {
+      'id' : wrikeFormId,
+      'data' : data
+    });
   }
 
   Future<Map> GetFormInfo(int wrikeFormId)
     => _rest.Get('${ServerUrl}/storage/forms/${wrikeFormId}');
 
-  Future SaveTaskInfo(int wrikeTaskId, int wrikeRootId, Map data) async {
-    data['wroot_id'] = wrikeRootId;
-    data['wid'] = wrikeTaskId;
-    return _rest.Create('${ServerUrl}/storage/tasks', data);
+  Future SaveTaskInfo(int wrikeTaskId,
+                      int wrikeRootId,
+                      int tmpl_root,
+                      int tmpl_sub) async {
+    Map data = {
+      'wroot_id' : wrikeRootId,
+      'wid' : wrikeTaskId,
+      'tmpl_root' : tmpl_root,
+      'tmpl_sub' : tmpl_sub
+    };
+    return _rest.Create('${ServerUrl}/storage/tasks', {
+      'id' : wrikeTaskId,
+      'data' : data
+    });
   }
 
   Future<Map> GetTaskInfo(int wrikeTaskId)
