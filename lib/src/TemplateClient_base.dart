@@ -48,6 +48,9 @@ class TemplateClient {
     });
   }
 
+  Future<List<Map>> GetTaskInfos()
+  => _rest.Get('${ServerUrl}/storage/tasks');
+
   Future<Map> GetTaskInfo(int wrikeTaskId)
     => _rest.Get('${ServerUrl}/storage/tasks/${wrikeTaskId}');
 
