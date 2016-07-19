@@ -4,6 +4,6 @@
 import 'package:TemplateClient/TemplateClient.dart';
 
 main() {
-
-
+  var t = new TemplateClient("http://localhost:9090");
+  t.getTemplateById(1);
 }

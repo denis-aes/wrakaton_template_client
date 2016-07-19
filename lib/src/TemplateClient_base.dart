@@ -9,15 +9,16 @@ import 'dart:async';
 class TemplateClient {
   HttpCommunicator http;
   RestAdapter net;
-  String _srvUrl;
+  String serverUrl;
 
-  TemplateClient(this._srvUrl){
+  TemplateClient(this.serverUrl){
     http = new HttpCommunicator();
     net = new RestAdapter(http);
   }
 
   Future getFormById(int formId) async {
-
+    Map resp = await net.Get("$serverUrl/forms/$formId");
+    return resp;
   }
 
   Future setTemplateById(int templateId, Map data) async {
@@ -25,7 +26,8 @@ class TemplateClient {
   }
 
   Future getTemplateById(int templateId) async {
-
+    Map resp = await net.Get("$serverUrl/templates/$templateId");
+    return resp;
   }
 
   Future getTaskById(int taskId) async {
