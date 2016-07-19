@@ -63,6 +63,9 @@ class TemplateClient {
   Future<Map> GetTemplate(int id, [bool isFull = true])
     => _rest.Get('${ServerUrl}/templates/{$id}${isFull ? "?full" : ""}');
 
+  Future<Map> GetTemplateByRef(String refName, [bool isFull = true])
+    => _rest.Get('${ServerUrl}/templates/ref/{$refName}${isFull ? "?full" : ""}');
+
   Future CreateTemplate(String header,
                         String description,
                         String type, /*TASK | PROJECT*/
