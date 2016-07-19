@@ -54,6 +54,13 @@ class TemplateClient {
   Future<Map> GetTaskInfo(int wrikeTaskId)
     => _rest.Get('${ServerUrl}/storage/tasks/${wrikeTaskId}');
 
+  Future<List> GetTaskWorkflow(int wrikeTaskId) {
+    return GetTaskInfo(wrikeTaskId).then((Map el){
+      return GetTemplate(el['tmpl_sub'], false)
+      .then((Map el) => el['data']['workflow']);
+    });
+  }
+
   Future<List> QueryByTaskData(String key, String value)
     => _rest.Get('${ServerUrl}/storage/tasks?${key}=${value}');
 
