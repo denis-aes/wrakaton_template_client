@@ -31,8 +31,8 @@ class TemplateClient {
     return _rest.Create('${ServerUrl}/storage/tasks', data);
   }
 
-  Future<Map> GetTaskInfo(int wrikeFormId)
-    => _rest.Get('${ServerUrl}/storage/tasks/${wrikeFormId}');
+  Future<Map> GetTaskInfo(int wrikeTaskId)
+    => _rest.Get('${ServerUrl}/storage/tasks/${wrikeTaskId}');
 
   Future<List> QueryByTaskData(String key, String value)
     => _rest.Get('${ServerUrl}/storage/tasks?${key}=${value}');
