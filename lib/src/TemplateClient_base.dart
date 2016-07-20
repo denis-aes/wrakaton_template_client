@@ -74,6 +74,9 @@ class TemplateClient {
   Future<List> GetProjectTemplates()
       => _rest.Get('${ServerUrl}/templates/projects?full');
 
+  Future<List> GetFoldersTemplates()
+      => _rest.Get('${ServerUrl}/templates/projects?full');
+
   Future<Map> GetTemplate(int id, [bool isFull = true])
     => _rest.Get('${ServerUrl}/templates/${id}${isFull ? "?full" : ""}');
 
