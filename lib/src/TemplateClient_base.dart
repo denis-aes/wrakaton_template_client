@@ -52,7 +52,7 @@ class TemplateClient {
   Future SaveTaskInfoBulk(List<Map<String, dynamic>> dataList) async {
     var result;
     await Future.forEach(dataList, (data) async {
-      int wrikeTaskId = data?.wid;
+      int wrikeTaskId = data == null ? null : data["wid"];
       if (wrikeTaskId != null) {
         result = _rest.Create('${ServerUrl}/storage/tasks', {
           'id' : wrikeTaskId,
