@@ -68,8 +68,8 @@ class TemplateClient {
   Future<List> QueryByWrikeRootId(int wrootid)
       => _rest.Get('${ServerUrl}/storage/tasks?wroot_id=${wrootid}');
 
-  Future<List> GetTemplates()
-    => _rest.Get('${ServerUrl}/templates');
+  Future<List> GetTemplates([bool isFull = false])
+    => _rest.Get('${ServerUrl}/templates${isFull ? "?full" : ""}');
 
   Future<List> GetProjectTemplates()
       => _rest.Get('${ServerUrl}/templates/projects?full');
