@@ -36,12 +36,17 @@ class TemplateClient {
   Future SaveTaskInfo(int wrikeTaskId,
                       int wrikeRootId,
                       int tmpl_root,
-                      int tmpl_sub) async {
+                      int tmpl_sub,
+                      String tmpl_root_ref_name,
+                      String tmpl_sub_ref_name
+                    ) async {
     Map data = {
       'wroot_id' : wrikeRootId,
       'wid' : wrikeTaskId,
       'tmpl_root' : tmpl_root,
-      'tmpl_sub' : tmpl_sub
+      'tmpl_sub' : tmpl_sub,
+      'tmpl_root_ref_name': tmpl_root_ref_name,
+      'tmpl_sub_ref_name': tmpl_sub_ref_name
     };
     return _rest.Create('${ServerUrl}/storage/tasks', {
       'id' : wrikeTaskId,
